@@ -7,7 +7,7 @@ public class DBConnection {
     public static Connection getConnection() {
         Connection conn = null;
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver"); // make sure to have mysql-connector-j in your libraries
+            Class.forName("com.mysql.cj.jdbc.Driver"); 
             conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/studentdb", "root", "1234");
             System.out.println("✅ Database Connected Successfully!");
         } catch (Exception e) {
