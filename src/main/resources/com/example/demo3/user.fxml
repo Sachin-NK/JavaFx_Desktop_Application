@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.demo3.UserController"
+            stylesheets="@user.css" style="-fx-background-color: #f4f6f9;">
+
+    <!-- Top Cards -->
+    <top>
+        <HBox spacing="20" alignment="CENTER" styleClass="card-bar" BorderPane.alignment="CENTER">
+            <VBox spacing="10" alignment="CENTER" styleClass="card-blue">
+                <Label text="Total Users" styleClass="card-title"/>
+                <Label fx:id="totalUsersLabel"  styleClass="card-value"/>
+            </VBox>
+
+            <VBox spacing="10" alignment="CENTER" styleClass="card-green">
+                <Label text="Active Users" styleClass="card-title"/>
+                <Label text="97" styleClass="card-value"/>
+            </VBox>
+
+            <VBox spacing="10" alignment="CENTER" styleClass="card-yellow">
+                <Label text="Today’s Visitors" styleClass="card-title"/>
+                <Label text="23" styleClass="card-value"/>
+            </VBox>
+
+            <VBox spacing="10" alignment="CENTER" styleClass="card-red">
+                <Label text="Fishing Trips" styleClass="card-title"/>
+                <Label text="12" styleClass="card-value"/>
+            </VBox>
+
+            <VBox spacing="10" alignment="CENTER" >
+                <Button fx:id="admin" onAction="#moveToAdminPage">Admin</Button>
+            </VBox>
+        </HBox>
+    </top>
+
+    <!-- Middle Table -->
+    <center>
+        <ScrollPane fitToWidth="true" fitToHeight="true" pannable="true"
+                    hbarPolicy="AS_NEEDED" vbarPolicy="AS_NEEDED"
+                    styleClass="table_scroll">
+            <AnchorPane>
+                <TableView fx:id="userTable" prefWidth="1200" prefHeight="500" layoutX="20" layoutY="20">
+                    <columns>
+                        <TableColumn text="Name" fx:id="nameCol" prefWidth="250"/>
+                        <TableColumn text="Age" fx:id="ageCol" prefWidth="250"/>
+                        <TableColumn text="Fishing Day" fx:id="fishingDayCol" prefWidth="200"/>
+                        <TableColumn text="Address" fx:id="addressCol" prefWidth="300"/>
+                        <TableColumn text="Contact" fx:id="contactCol" prefWidth="200"/>
+                    </columns>
+                </TableView>
+            </AnchorPane>
+        </ScrollPane>
+    </center>
+
+    <!-- Bottom Buttons -->
+    <bottom>
+        <HBox spacing="20" alignment="CENTER" styleClass="action-bar" BorderPane.alignment="CENTER">
+            <Button text="Add User" onAction="#addUser" styleClass="btn-add"/>
+            <Button text="Update User" onAction="#updateSelectedUser" styleClass="btn-update"/>
+            <Button text="Delete User" onAction="#deleteSelectedUser"  styleClass="btn-delete"/>
+        </HBox>
+    </bottom>
+</BorderPane>

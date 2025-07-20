@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.demo3.WeatherController"
+            stylesheets="@wheather.css">
+
+    <VBox spacing="20" layoutX="20" layoutY="20"
+          AnchorPane.topAnchor="0"
+          AnchorPane.leftAnchor="0"
+          AnchorPane.rightAnchor="0"
+          AnchorPane.bottomAnchor="0">
+
+        <padding>
+            <Insets top="20" right="20" bottom="20" left="20"/>
+        </padding>
+
+        <!-- Search Inputs -->
+        <HBox spacing="10" alignment="CENTER_LEFT" fx:id="hboxstyle">
+            <TextField fx:id="latitudeField" promptText="Latitude (e.g. 6.05)" />
+            <TextField fx:id="longitudeField" promptText="Longitude (e.g. 80.21)" />
+            <Button text="🔍 Search" onAction="#getWeatherData" />
+        </HBox>
+
+        <!-- Scrollable Weather Cards -->
+
+        <ScrollPane fitToWidth="true" fitToHeight="false" prefHeight="300" hbarPolicy="AS_NEEDED" vbarPolicy="NEVER">
+
+            <StackPane alignment="CENTER">
+                <HBox fx:id="cardContainer" spacing="20">
+                    <padding>
+                        <Insets top="80" right="20" bottom="5" left="20"/>
+                    </padding>
+                </HBox>
+            </StackPane>
+        </ScrollPane>
+
+
+        <!-- Line Chart for Wave Heights -->
+        <LineChart fx:id="weatherChart" title="Wave Height Trend">
+            <xAxis>
+                <CategoryAxis fx:id="xAxis" label="Date" />
+            </xAxis>
+            <yAxis>
+                <NumberAxis fx:id="yAxis" label="Wave Height (m)" />
+            </yAxis>
+        </LineChart>
+
+    </VBox>
+</AnchorPane>

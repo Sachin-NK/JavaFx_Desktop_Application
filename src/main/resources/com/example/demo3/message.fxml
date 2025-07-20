@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane fx:controller="com.example.demo3.Message"
+            xmlns:fx="http://javafx.com/fxml"
+            stylesheets="@message.css"
+            prefHeight="600" prefWidth="1000">
+
+    <!-- Sidebar User List -->
+    <left>
+        <VBox spacing="30" styleClass="sidebar" VBox.vgrow="ALWAYS"  alignment="CENTER">
+            <Label text="💬 Users" styleClass="sidebar-title"/>
+
+            <!-- This must grow to fill vertical space -->
+            <ScrollPane fx:id="userListScroll" fitToWidth="true" fitToHeight="true" VBox.vgrow="ALWAYS">
+                <content>
+                    <VBox fx:id="userListVBox" spacing="5" />
+                </content>
+            </ScrollPane>
+
+            <!-- Fixed-height buttons at bottom -->
+            <HBox spacing="10" alignment="CENTER">
+                <Button text="➕" onAction="#insertUser"/>
+                <Button text="🗑" onAction="#deleteUser"/>
+            </HBox>
+        </VBox>
+    </left>
+
+    <!-- Chat Area -->
+    <center>
+        <VBox spacing="10" styleClass="chat-area" VBox.vgrow="ALWAYS">
+
+            <!-- Scrollable Message Area -->
+            <ScrollPane fitToWidth="true" fitToHeight="true" VBox.vgrow="ALWAYS">
+                <VBox fx:id="messageContainer" spacing="10" styleClass="message-box"/>
+            </ScrollPane>
+
+            <!-- Message Input -->
+            <HBox spacing="10">
+                <TextField fx:id="txt" promptText="Type your message..." HBox.hgrow="ALWAYS"/>
+                <Button fx:id="btn" text="Send" onAction="#insertData"/>
+            </HBox>
+        </VBox>
+    </center>
+
+    <!-- Back Button -->
+    <bottom>
+        <HBox alignment="CENTER_RIGHT" >
+            <Button fx:id="closebtn" text="⬅ Back to Menu" onAction="#SwitchToMainMenu"/>
+        </HBox>
+    </bottom>
+</BorderPane>

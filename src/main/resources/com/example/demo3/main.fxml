@@ -1,0 +1,53 @@
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane fx:id="rootContainer" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.demo3.MainController" stylesheets="@style.css">
+    <HBox AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+        
+        <!-- Left Sidebar Navigation -->
+        <VBox styleClass="sidebar" prefWidth="250" spacing="0">
+            <!-- Logo and Title Section -->
+            <VBox styleClass="sidebar-header" spacing="10" alignment="CENTER">
+                <Label text="🐟" styleClass="sidebar-logo"/>
+                <VBox spacing="2" alignment="CENTER">
+                    <Label text="Smart Fisheries" styleClass="sidebar-title"/>
+                    <Label text="Management System" styleClass="sidebar-subtitle"/>
+                </VBox>
+            </VBox>
+            
+            <!-- Navigation Menu -->
+            <VBox styleClass="sidebar-menu" spacing="5" VBox.vgrow="ALWAYS">
+                <Button fx:id="homeBtn" text="🏠 Home" onAction="#openHome" styleClass="sidebar-btn sidebar-btn-active"/>
+                <Button fx:id="weatherBtn" text="🌤 Weather" onAction="#openWeather" styleClass="sidebar-btn"/>
+                <Button fx:id="messageBtn" text="💬 Message" onAction="#openMessage" styleClass="sidebar-btn"/>
+                <Button fx:id="communityBtn" text="👥 Community" onAction="#openCommunity" styleClass="sidebar-btn"/>
+                <Button fx:id="usersBtn" text="👤 Users" onAction="#openUser" styleClass="sidebar-btn"/>
+                <Button fx:id="printBtn" text="🖨 Print" onAction="#openPrint" styleClass="sidebar-btn"/>
+            </VBox>
+            
+            <!-- User Info and Logout at Bottom -->
+            <VBox styleClass="sidebar-footer" spacing="10" alignment="CENTER">
+                <Label fx:id="user" styleClass="sidebar-user-info"/>
+                <Button text="🚪 Logout" fx:id="lgout" onAction="#confirmLogout" styleClass="sidebar-logout-btn"/>
+            </VBox>
+        </VBox>
+        
+        <!-- Right Side Content Area -->
+        <VBox HBox.hgrow="ALWAYS">
+            <!-- Top Header Bar (Simplified) -->
+            <HBox styleClass="content-header" alignment="CENTER_RIGHT" spacing="15">
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button text="🤖 Chatbot" styleClass="header-btn" onAction="#openChatbot"/>
+                <TextField fx:id="searchField" promptText="Search..." styleClass="header-search"/>
+                <Button text="🔍" styleClass="search-btn"/>
+            </HBox>
+            
+            <!-- Main Content Area -->
+            <StackPane fx:id="mainContent" VBox.vgrow="ALWAYS"/>
+        </VBox>
+        
+    </HBox>
+    
+    <!-- Floating chatbot will be added here programmatically -->
+</AnchorPane>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.demo3.LogingController"
+            prefHeight="700.0" prefWidth="900.0" 
+            styleClass="login-container" 
+            stylesheets="@login.css">
+
+    <StackPane AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0" 
+               AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+               
+        <VBox alignment="CENTER" spacing="0" styleClass="outer-card">
+            <!-- Fish Logo -->
+            <Label text="🐟" styleClass="fish-logo"/>
+            
+            <!-- System Title -->
+            <Label text="SMART FISHERIES" styleClass="system-title"/>
+            
+            <!-- System Subtitle -->
+            <Label text="MANAGEMENT SYSTEM" styleClass="system-subtitle"/>
+            
+            <!-- Login Form Container -->
+            <VBox fx:id="loginVBox" alignment="CENTER" spacing="20" styleClass="login-form">
+                <!-- Username Field -->
+                <VBox styleClass="form-field">
+                    <TextField fx:id="userdetails" promptText="Username" styleClass="login-textfield"/>
+                </VBox>
+                
+                <!-- Password Field -->
+                <VBox styleClass="form-field">
+                    <PasswordField fx:id="pwd" promptText="Password" styleClass="login-textfield"/>
+                </VBox>
+                
+                <!-- Login Button -->
+                <Button fx:id="login" text="Login" onAction="#handleLogin" styleClass="login-button">
+                    <VBox.margin>
+                        <Insets top="10" />
+                    </VBox.margin>
+                </Button>
+                
+                <!-- Sign Up Link -->
+                <Button fx:id="signup" text="Sign Up" onAction="#handleSignup" styleClass="signup-link"/>
+                
+                <!-- Error Message Area -->
+                <Label fx:id="errorMessage" styleClass="error-message" managed="false" visible="false"/>
+            </VBox>
+        </VBox>
+    </StackPane>
+</AnchorPane>

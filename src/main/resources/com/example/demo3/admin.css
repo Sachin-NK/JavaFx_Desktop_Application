@@ -1,0 +1,59 @@
+/* Set the background of the root pane */
+.root {
+    -fx-background-color: #f4f7fa;
+    -fx-font-family: "Segoe UI", sans-serif;
+}
+
+/* Style the title label */
+.label.title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50;
+}
+
+/* Style the header HBox */
+.header-bar {
+    -fx-padding: 20 30 10 30;
+    -fx-background-color: #ffffff;
+    -fx-border-color: #dcdde1;
+    -fx-border-width: 0 0 1 0;
+}
+
+/* Style the ScrollPane */
+.table_scroll {
+    -fx-padding: 20;
+}
+
+/* TableView styling */
+.table-view {
+    -fx-background-color: white;
+    -fx-table-cell-border-color: #ecf0f1;
+    -fx-border-color: #dcdde1;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-padding: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 2);
+}
+
+.table-view .column-header {
+    -fx-background-color: #3498db;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-padding: 8 5 8 5;
+}
+
+/* Table row hover effect */
+.table-row-cell:hover {
+    -fx-background-color: #e8f4fd;
+}
+
+/* Table cell text */
+.table-cell {
+    -fx-padding: 10 5;
+    -fx-font-size: 13px;
+    -fx-text-fill: #2f3640;
+}

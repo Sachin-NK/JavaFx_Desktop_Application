@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<fx:root type="javafx.scene.layout.VBox" 
+         xmlns="http://javafx.com/javafx/17" 
+         xmlns:fx="http://javafx.com/fxml"
+         styleClass="chat-window-enhanced"
+         stylesheets="@chat-window.css">
+
+    <!-- Chat Window Container -->
+    <VBox fx:id="chatWindowContainer" styleClass="chat-window-container">
+        
+        <!-- Header Bar -->
+        <HBox fx:id="headerBar" styleClass="chat-header" alignment="CENTER_LEFT" spacing="10">
+            <padding>
+                <Insets top="16" right="20" bottom="16" left="20"/>
+            </padding>
+            
+            <Label fx:id="titleLabel" 
+                   text="Smart Fishing Assistant 🤖" 
+                   styleClass="chat-title"
+                   HBox.hgrow="ALWAYS"/>
+            
+            <Button fx:id="closeButton" 
+                    text="✕" 
+                    styleClass="chat-close-btn"
+                    onAction="#slideDown"/>
+        </HBox>
+        
+        <!-- Messages Area -->
+        <ScrollPane fx:id="chatScrollPane" 
+                    styleClass="chat-scroll"
+                    fitToWidth="true"
+                    VBox.vgrow="ALWAYS">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+            
+            <VBox fx:id="messageContainer" 
+                  styleClass="chat-messages" 
+                  spacing="12">
+                <padding>
+                    <Insets top="10" right="10" bottom="10" left="10"/>
+                </padding>
+            </VBox>
+        </ScrollPane>
+        
+        <!-- Input Area -->
+        <HBox fx:id="inputContainer" 
+              styleClass="chat-input-container" 
+              alignment="CENTER_LEFT" 
+              spacing="12">
+            <padding>
+                <Insets top="16" right="20" bottom="20" left="20"/>
+            </padding>
+            
+            <TextField fx:id="messageInput" 
+                       styleClass="chat-input"
+                       promptText="Ask about weather, fish prices, or fishing tips..."
+                       HBox.hgrow="ALWAYS"
+                       onAction="#sendMessage"/>
+            
+            <Button fx:id="sendButton" 
+                    text="Send" 
+                    styleClass="chat-send-btn"
+                    onAction="#sendMessage"/>
+        </HBox>
+        
+    </VBox>
+    
+</fx:root>

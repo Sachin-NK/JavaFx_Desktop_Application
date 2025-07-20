@@ -1,0 +1,209 @@
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<ScrollPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.demo3.HomeController" 
+            stylesheets="@style.css" fitToWidth="true" styleClass="dashboard-scroll">
+    
+    <VBox spacing="25" styleClass="dashboard-content">
+        
+        <!-- Weather Alert Banner -->
+        <HBox fx:id="weatherAlertBanner" styleClass="weather-alert" alignment="CENTER_LEFT" spacing="15">
+            <Label fx:id="alertIcon" text="⚠️" styleClass="alert-icon"/>
+            <VBox spacing="2">
+                <Label fx:id="alertTitle" text="Weather Alert: Strong winds expected in Southern waters" styleClass="alert-title"/>
+                <Label fx:id="alertSubtitle" text="Fishing boats advised to stay in harbor until 3 PM today" styleClass="alert-subtitle"/>
+            </VBox>
+        </HBox>
+        
+        <!-- Metrics Cards Row -->
+        <HBox spacing="20" alignment="CENTER" styleClass="cards-container">
+            <!-- Today's Max Price Card -->
+            <VBox styleClass="metric-card price-card" spacing="8" HBox.hgrow="ALWAYS">
+                <HBox alignment="CENTER_LEFT" spacing="10">
+                    <Label text="Today's Max Price" styleClass="card-title"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Label text="💰" styleClass="card-icon"/>
+                </HBox>
+                <Label fx:id="lbelprice" text="LKR 1,200.50" styleClass="card-value price-value"/>
+                <HBox alignment="CENTER_LEFT" spacing="5">
+                    <Label fx:id="lbelname" text="Salmon - Colombo" styleClass="card-subtitle"/>
+                </HBox>
+                <HBox alignment="CENTER_LEFT" spacing="5">
+                    <Label text="↗" styleClass="trend-up"/>
+                    <Label text="+15.2% from yesterday" styleClass="trend-text"/>
+                </HBox>
+            </VBox>
+            
+            <!-- Active Boats Card -->
+            <VBox styleClass="metric-card boats-card" spacing="8" HBox.hgrow="ALWAYS">
+                <HBox alignment="CENTER_LEFT" spacing="10">
+                    <Label text="Active Boats" styleClass="card-title"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Label text="⛵" styleClass="card-icon"/>
+                </HBox>
+                <HBox alignment="CENTER_LEFT" spacing="10">
+                    <Label fx:id="boatsValueLabel" text="440" styleClass="card-value boats-value"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <HBox spacing="5">
+                        <Button text="-" styleClass="counter-btn" onAction="#decreaseBoats"/>
+                        <Button text="+" styleClass="counter-btn" onAction="#increaseBoats"/>
+                    </HBox>
+                </HBox>
+                <Label text="Currently at sea" styleClass="card-subtitle"/>
+                <HBox alignment="CENTER_LEFT" spacing="5">
+                    <Label text="↗" styleClass="trend-up"/>
+                    <Label text="+8 from morning" styleClass="trend-text"/>
+                </HBox>
+            </VBox>
+            
+            <!-- Fishing Trips Card -->
+            <VBox styleClass="metric-card trips-card" spacing="8" HBox.hgrow="ALWAYS">
+                <HBox alignment="CENTER_LEFT" spacing="10">
+                    <Label text="Fishing Trips" styleClass="card-title"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Label text="🎣" styleClass="card-icon"/>
+                </HBox>
+                <HBox alignment="CENTER_LEFT" spacing="10">
+                    <Label fx:id="tripsValueLabel" text="25" styleClass="card-value trips-value"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <HBox spacing="5">
+                        <Button text="-" styleClass="counter-btn" onAction="#decreaseTrips"/>
+                        <Button text="+" styleClass="counter-btn" onAction="#increaseTrips"/>
+                    </HBox>
+                </HBox>
+                <Label text="Completed today" styleClass="card-subtitle"/>
+                <HBox alignment="CENTER_LEFT" spacing="5">
+                    <Label text="↗" styleClass="trend-up"/>
+                    <Label text="+2 from average" styleClass="trend-text"/>
+                </HBox>
+            </VBox>
+            
+            <!-- Active Fishermen Card -->
+            <VBox styleClass="metric-card fishermen-card" spacing="8" HBox.hgrow="ALWAYS">
+                <HBox alignment="CENTER_LEFT" spacing="10">
+                    <Label text="Active Fishermen" styleClass="card-title"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Label text="👥" styleClass="card-icon"/>
+                </HBox>
+                <HBox alignment="CENTER_LEFT" spacing="10">
+                    <Label fx:id="fishermenValueLabel" text="1,120" styleClass="card-value fishermen-value"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <HBox spacing="5">
+                        <Button text="-" styleClass="counter-btn" onAction="#decreaseFishermen"/>
+                        <Button text="+" styleClass="counter-btn" onAction="#increaseFishermen"/>
+                    </HBox>
+                </HBox>
+                <Label text="Registered today" styleClass="card-subtitle"/>
+                <HBox alignment="CENTER_LEFT" spacing="5">
+                    <Label text="↗" styleClass="trend-up"/>
+                    <Label text="+45 new registrations" styleClass="trend-text"/>
+                </HBox>
+            </VBox>
+        </HBox>
+        
+        <!-- Bottom Section with Chart and Weather -->
+        <HBox spacing="25" alignment="TOP_CENTER">
+            
+            <!-- Fish Price Trends Chart -->
+            <VBox styleClass="chart-container" spacing="15" HBox.hgrow="ALWAYS">
+                <HBox alignment="CENTER_LEFT" spacing="10">
+                    <Label text="Fish Price Trends" styleClass="section-title"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <ComboBox fx:id="fishTypeCombo" styleClass="time-selector" value="All Fish Types"/>
+                    <ComboBox fx:id="timeRangeCombo" styleClass="time-selector" value="Last 3 months"/>
+                </HBox>
+                
+                <!-- Chart Legend -->
+                <HBox alignment="CENTER_LEFT" spacing="20">
+                    <HBox alignment="CENTER_LEFT" spacing="5">
+                        <Label text="●" styleClass="legend-salmon"/>
+                        <Label text="Salmon (LKR)" styleClass="legend-text"/>
+                    </HBox>
+                    <HBox alignment="CENTER_LEFT" spacing="5">
+                        <Label text="●" styleClass="legend-tuna"/>
+                        <Label text="Tuna (LKR)" styleClass="legend-text"/>
+                    </HBox>
+                    <HBox alignment="CENTER_LEFT" spacing="5">
+                        <Label text="●" styleClass="legend-mackerel"/>
+                        <Label text="Mackerel (LKR)" styleClass="legend-text"/>
+                    </HBox>
+                </HBox>
+                
+                <LineChart fx:id="fishPriceChart" styleClass="price-chart" prefHeight="300" prefWidth="600" createSymbols="false">
+                    <xAxis>
+                        <CategoryAxis label="Date" styleClass="chart-axis"/>
+                    </xAxis>
+                    <yAxis>
+                        <NumberAxis label="Price (LKR)" styleClass="chart-axis"/>
+                    </yAxis>
+                </LineChart>
+            </VBox>
+            
+            <!-- Weather Conditions Card -->
+            <VBox styleClass="weather-card" spacing="15" prefWidth="300">
+                <HBox alignment="CENTER_LEFT" spacing="10">
+                    <Label text="Weather Conditions" styleClass="section-title"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Label fx:id="weatherIcon" text="🌤️" styleClass="weather-icon"/>
+                </HBox>
+                
+                <VBox spacing="10" alignment="CENTER">
+                    <Label fx:id="temperatureLabel" text="28°C" styleClass="temperature"/>
+                    <Label fx:id="conditionLabel" text="Partly Cloudy" styleClass="weather-desc"/>
+                    <Label text="Colombo Harbor" styleClass="location"/>
+                </VBox>
+                
+                <HBox spacing="10">
+                    <VBox styleClass="weather-info-section" spacing="5" HBox.hgrow="ALWAYS">
+                        <Label text="Wind Speed" styleClass="weather-label"/>
+                        <Label fx:id="windSpeedLabel" text="12 km/h" styleClass="weather-value"/>
+                    </VBox>
+                    <VBox styleClass="weather-info-section" spacing="5" HBox.hgrow="ALWAYS">
+                        <Label text="Wave Height" styleClass="weather-label"/>
+                        <Label fx:id="waveHeightLabel" text="1.2 m" styleClass="weather-value"/>
+                    </VBox>
+                </HBox>
+                
+                <HBox spacing="10">
+                    <VBox styleClass="weather-info-section" spacing="5" HBox.hgrow="ALWAYS">
+                        <Label text="Visibility" styleClass="weather-label"/>
+                        <Label fx:id="visibilityLabel" text="10 km" styleClass="weather-value"/>
+                    </VBox>
+                    <VBox styleClass="weather-info-section" spacing="5" HBox.hgrow="ALWAYS">
+                        <Label text="Humidity" styleClass="weather-label"/>
+                        <Label fx:id="humidityLabel" text="75%" styleClass="weather-value"/>
+                    </VBox>
+                </HBox>
+            </VBox>
+            
+        </HBox>
+        
+        <!-- Data Table Section -->
+        <VBox styleClass="chart-container" spacing="15">
+            <HBox alignment="CENTER_LEFT" spacing="10">
+                <Label text="Fish Price Data" styleClass="section-title"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <TextField fx:id="text_field" styleClass="header-search" promptText="Search fish data..."/>
+            </HBox>
+            
+            <TableView fx:id="agreementTable" prefWidth="900" styleClass="modern-table">
+                <columns>
+                    <TableColumn fx:id="colID" text="ID" prefWidth="100"/>
+                    <TableColumn fx:id="colFishName" text="Fish Name" prefWidth="200"/>
+                    <TableColumn fx:id="colFishDetails" text="Details" prefWidth="200"/>
+                    <TableColumn fx:id="colTodayPrice" text="Price (LKR)" prefWidth="200"/>
+                    <TableColumn fx:id="colPlace" text="Place" prefWidth="200"/>
+                    <TableColumn fx:id="colStatus" text="Status" prefWidth="100"/>
+                    <TableColumn fx:id="colDate" text="Date" prefWidth="100"/>
+                    <TableColumn fx:id="colAction" text="Action" prefWidth="100"/>
+                </columns>
+            </TableView>
+        </VBox>
+        
+    </VBox>
+    
+</ScrollPane>

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo3.CommunityController">
+   <children>
+      <!-- Community Header -->
+      <HBox styleClass="community-header" alignment="CENTER_LEFT" spacing="15">
+         <children>
+            <Label text="Community Chat" styleClass="community-title">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Region HBox.hgrow="ALWAYS" />
+            <HBox alignment="CENTER" spacing="8">
+               <children>
+                  <Label text="●" styleClass="online-indicator" />
+                  <Label text="124 online" styleClass="online-count" />
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="20.0" left="30.0" right="30.0" top="20.0" />
+         </padding>
+      </HBox>
+      
+      <!-- Chat Messages Area -->
+      <ScrollPane fx:id="chatScrollPane" styleClass="chat-scroll-pane" VBox.vgrow="ALWAYS">
+         <content>
+            <VBox fx:id="messagesContainer" styleClass="messages-container" spacing="20">
+               <padding>
+                  <Insets bottom="20.0" left="30.0" right="30.0" top="10.0" />
+               </padding>
+               
+               <!-- Message 1 -->
+               <HBox styleClass="message-item" spacing="15" alignment="TOP_LEFT">
+                  <children>
+                     <Label text="A" styleClass="avatar avatar-blue" />
+                     <VBox spacing="5" HBox.hgrow="ALWAYS">
+                        <children>
+                           <HBox alignment="CENTER_LEFT" spacing="10">
+                              <children>
+                                 <Label text="Arjun Perera" styleClass="username" />
+                                 <Label text="2 min ago" styleClass="timestamp" />
+                              </children>
+                           </HBox>
+                           <Label text="Good catch today near Negombo! Fish prices are up 15%" styleClass="message-text" wrapText="true" />
+                        </children>
+                     </VBox>
+                  </children>
+               </HBox>
+               
+               <!-- Message 2 -->
+               <HBox styleClass="message-item" spacing="15" alignment="TOP_LEFT">
+                  <children>
+                     <Label text="S" styleClass="avatar avatar-green" />
+                     <VBox spacing="5" HBox.hgrow="ALWAYS">
+                        <children>
+                           <HBox alignment="CENTER_LEFT" spacing="10">
+                              <children>
+                                 <Label text="Saman Silva" styleClass="username" />
+                                 <Label text="5 min ago" styleClass="timestamp" />
+                              </children>
+                           </HBox>
+                           <Label text="Weather warning for tomorrow - stay safe everyone!" styleClass="message-text" wrapText="true" />
+                        </children>
+                     </VBox>
+                  </children>
+               </HBox>
+               
+               <!-- Message 3 -->
+               <HBox styleClass="message-item" spacing="15" alignment="TOP_LEFT">
+                  <children>
+                     <Label text="K" styleClass="avatar avatar-orange" />
+                     <VBox spacing="5" HBox.hgrow="ALWAYS">
+                        <children>
+                           <HBox alignment="CENTER_LEFT" spacing="10">
+                              <children>
+                                 <Label text="Kamal Fernando" styleClass="username" />
+                                 <Label text="8 min ago" styleClass="timestamp" />
+                              </children>
+                           </HBox>
+                           <Label text="Anyone heading to Galle harbor tomorrow? Need to share transport costs." styleClass="message-text" wrapText="true" />
+                        </children>
+                     </VBox>
+                  </children>
+               </HBox>
+               
+               <!-- Message 4 -->
+               <HBox styleClass="message-item" spacing="15" alignment="TOP_LEFT">
+                  <children>
+                     <Label text="R" styleClass="avatar avatar-purple" />
+                     <VBox spacing="5" HBox.hgrow="ALWAYS">
+                        <children>
+                           <HBox alignment="CENTER_LEFT" spacing="10">
+                              <children>
+                                 <Label text="Ravi Wickrama" styleClass="username" />
+                                 <Label text="12 min ago" styleClass="timestamp" />
+                              </children>
+                           </HBox>
+                           <Label text="New fishing regulations announced. Check the notice board at the harbor." styleClass="message-text" wrapText="true" />
+                        </children>
+                     </VBox>
+                  </children>
+               </HBox>
+               
+               <!-- Message 5 -->
+               <HBox styleClass="message-item" spacing="15" alignment="TOP_LEFT">
+                  <children>
+                     <Label text="N" styleClass="avatar avatar-teal" />
+                     <VBox spacing="5" HBox.hgrow="ALWAYS">
+                        <children>
+                           <HBox alignment="CENTER_LEFT" spacing="10">
+                              <children>
+                                 <Label text="Nimal Jayasuriya" styleClass="username" />
+                                 <Label text="15 min ago" styleClass="timestamp" />
+                              </children>
+                           </HBox>
+                           <Label text="Great tuna season this year! Sharing some tips in the forum later." styleClass="message-text" wrapText="true" />
+                        </children>
+                     </VBox>
+                  </children>
+               </HBox>
+               
+            </VBox>
+         </content>
+      </ScrollPane>
+      
+      <!-- Message Input Area -->
+      <HBox styleClass="message-input-area" alignment="CENTER" spacing="15">
+         <children>
+            <TextField fx:id="messageInput" promptText="Type a message..." styleClass="message-input-field" HBox.hgrow="ALWAYS" />
+            <Button fx:id="sendButton" text="✈" styleClass="send-button" onAction="#sendMessage" />
+         </children>
+         <padding>
+            <Insets bottom="20.0" left="30.0" right="30.0" top="15.0" />
+         </padding>
+      </HBox>
+   </children>
+</VBox>

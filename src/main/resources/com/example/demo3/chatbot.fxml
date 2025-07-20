@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.HBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.demo3.ChatbotController"
+            stylesheets="@chatbot.css">
+
+    <top>
+        <Label text="Smart Fishing Assistant 🤖" styleClass="chatbot-title"/>
+    </top>
+
+    <center>
+        <ScrollPane fx:id="scrollPane" styleClass="chat-scroll" fitToWidth="true">
+            <VBox fx:id="chatContainer" spacing="10" styleClass="chat-container"/>
+        </ScrollPane>
+    </center>
+
+    <bottom>
+        <HBox spacing="10"  styleClass="chat-input-bar">
+            <TextField fx:id="userInput" promptText="Ask about weather or fish..." HBox.hgrow="ALWAYS"/>
+            <Button text="Send" onAction="#handleUserInput" styleClass="send-btn"/>
+        </HBox>
+    </bottom>
+
+</BorderPane>

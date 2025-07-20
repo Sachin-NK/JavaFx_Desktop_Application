@@ -1,0 +1,311 @@
+/* ===================================================================
+   SMART FISHERIES MANAGEMENT SYSTEM - LOGIN & SIGNUP STYLING
+   Beautiful blue-themed interface matching fisheries branding
+   =================================================================== */
+
+/* Main container with blue gradient background */
+.login-container {
+    -fx-background-image: url("https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80");
+    -fx-background-size: cover;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center center;
+    -fx-background-color: #1e3a8a, #3b82f6, #60a5fa, #93c5fd;
+    -fx-padding: 40px;
+}
+
+/* Outer card container with glass effect */
+.outer-card {
+    -fx-background-color: rgba(255, 255, 255, 0.1);
+    -fx-background-radius: 25px;
+    -fx-border-radius: 25px;
+    -fx-border-color: rgba(255, 255, 255, 0.2);
+    -fx-border-width: 1px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 20, 0, 0, 10);
+    -fx-padding: 40px;
+    -fx-max-width: 450px;
+}
+
+/* Fish logo styling */
+.fish-logo {
+    -fx-font-size: 60px;
+    -fx-text-fill: white;
+    -fx-font-family: "Segoe UI Symbol", "Arial Unicode MS", sans-serif;
+    -fx-padding: 0 0 20px 0;
+}
+
+/* System title styling */
+.system-title {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-font-family: "Segoe UI", "Roboto", sans-serif;
+    -fx-text-alignment: center;
+    -fx-padding: 0 0 5px 0;
+}
+
+/* Subtitle styling */
+.system-subtitle {
+    -fx-font-size: 14px;
+    -fx-font-weight: normal;
+    -fx-text-fill: rgba(255, 255, 255, 0.8);
+    -fx-font-family: "Segoe UI", "Roboto", sans-serif;
+    -fx-text-alignment: center;
+    -fx-padding: 0 0 30px 0;
+    -fx-letter-spacing: 1px;
+}
+
+/* Inner form container */
+.login-form {
+    -fx-background-color: rgba(255, 255, 255, 0.95);
+    -fx-padding: 35px;
+    -fx-spacing: 20px;
+    -fx-background-radius: 15px;
+    -fx-border-radius: 15px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 10, 0, 0, 5);
+    -fx-alignment: center;
+}
+
+/* Text field styling */
+.login-textfield {
+    -fx-pref-width: 320px;
+    -fx-font-size: 16px;
+    -fx-padding: 15px 20px;
+    -fx-background-radius: 25px;
+    -fx-border-radius: 25px;
+    -fx-border-color: transparent;
+    -fx-border-width: 0px;
+    -fx-background-color: #f8f9fa;
+    -fx-text-fill: #2c3e50;
+    -fx-prompt-text-fill: #95a5a6;
+    -fx-font-family: "Segoe UI", "Roboto", sans-serif;
+}
+
+.login-textfield:focused {
+    -fx-background-color: white;
+    -fx-effect: dropshadow(gaussian, rgba(74, 144, 226, 0.3), 8, 0, 0, 0);
+    -fx-border-color: #4A90E2;
+    -fx-border-width: 2px;
+}
+
+.login-textfield:hover {
+    -fx-background-color: white;
+}
+
+/* Password field with eye icon space */
+.password-container {
+    -fx-spacing: 0;
+    -fx-alignment: center-right;
+}
+
+/* Login button styling */
+.login-button {
+    -fx-background-color: linear-gradient(to right, #4A90E2, #357ABD);
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-padding: 15px 0px;
+    -fx-background-radius: 25px;
+    -fx-border-radius: 25px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(74, 144, 226, 0.4), 8, 0, 0, 3);
+    -fx-font-family: "Segoe UI", "Roboto", sans-serif;
+    -fx-pref-width: 320px;
+    -fx-alignment: center;
+}
+
+.login-button:hover {
+    -fx-background-color: linear-gradient(to right, #357ABD, #2E5F8A);
+    -fx-effect: dropshadow(gaussian, rgba(74, 144, 226, 0.6), 12, 0, 0, 5);
+    -fx-translate-y: -1px;
+}
+
+.login-button:pressed {
+    -fx-background-color: linear-gradient(to right, #2E5F8A, #1E3A5F);
+    -fx-translate-y: 1px;
+    -fx-effect: dropshadow(gaussian, rgba(74, 144, 226, 0.3), 5, 0, 0, 2);
+}
+
+/* Sign up link styling */
+.signup-link {
+    -fx-background-color: transparent;
+    -fx-text-fill: #4A90E2;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Segoe UI", "Roboto", sans-serif;
+    -fx-cursor: hand;
+    -fx-underline: false;
+    -fx-padding: 10px 0;
+    -fx-pref-width: 320px;
+    -fx-alignment: center;
+    -fx-border-color: transparent;
+    -fx-border-width: 0px;
+    -fx-background-radius: 0px;
+    -fx-border-radius: 0px;
+}
+
+.signup-link:hover {
+    -fx-text-fill: #357ABD;
+    -fx-underline: true;
+    -fx-background-color: rgba(74, 144, 226, 0.05);
+}
+
+/* Sign up button for signup page */
+.signup-button {
+    -fx-background-color: linear-gradient(to right, #4A90E2, #357ABD);
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-padding: 15px 0px;
+    -fx-background-radius: 25px;
+    -fx-border-radius: 25px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(74, 144, 226, 0.4), 8, 0, 0, 3);
+    -fx-font-family: "Segoe UI", "Roboto", sans-serif;
+    -fx-pref-width: 320px;
+    -fx-alignment: center;
+}
+
+.signup-button:hover {
+    -fx-background-color: linear-gradient(to right, #357ABD, #2E5F8A);
+    -fx-effect: dropshadow(gaussian, rgba(74, 144, 226, 0.6), 12, 0, 0, 5);
+    -fx-translate-y: -1px;
+}
+
+.signup-button:pressed {
+    -fx-background-color: linear-gradient(to right, #2E5F8A, #1E3A5F);
+    -fx-translate-y: 1px;
+    -fx-effect: dropshadow(gaussian, rgba(74, 144, 226, 0.3), 5, 0, 0, 2);
+}
+
+/* Login link for signup page */
+.login-link {
+    -fx-background-color: transparent;
+    -fx-text-fill: #4A90E2;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Segoe UI", "Roboto", sans-serif;
+    -fx-cursor: hand;
+    -fx-underline: false;
+    -fx-padding: 10px 0;
+    -fx-pref-width: 320px;
+    -fx-alignment: center;
+    -fx-border-color: transparent;
+    -fx-border-width: 0px;
+    -fx-background-radius: 0px;
+    -fx-border-radius: 0px;
+}
+
+.login-link:hover {
+    -fx-text-fill: #357ABD;
+    -fx-underline: true;
+    -fx-background-color: rgba(74, 144, 226, 0.05);
+}
+
+/* Error message styling */
+.error-message {
+    -fx-text-fill: #e74c3c;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-padding: 5px 0;
+    -fx-font-family: "Segoe UI", "Roboto", sans-serif;
+    -fx-alignment: center;
+    -fx-pref-width: 320px;
+}
+
+/* Success message styling */
+.success-message {
+    -fx-text-fill: #27ae60;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-padding: 5px 0;
+    -fx-font-family: "Segoe UI", "Roboto", sans-serif;
+    -fx-alignment: center;
+    -fx-pref-width: 320px;
+}
+
+/* Form field containers */
+.form-field {
+    -fx-spacing: 0px;
+    -fx-alignment: center;
+    -fx-pref-width: 320px;
+}
+
+/* Eye icon for password visibility */
+.password-eye {
+    -fx-font-size: 16px;
+    -fx-text-fill: #95a5a6;
+    -fx-cursor: hand;
+    -fx-padding: 0 15px 0 0;
+}
+
+.password-eye:hover {
+    -fx-text-fill: #4A90E2;
+}
+
+/* Checkbox styling for terms */
+.terms-checkbox {
+    -fx-text-fill: #2c3e50;
+    -fx-font-size: 12px;
+    -fx-font-family: "Segoe UI", "Roboto", sans-serif;
+}
+
+/* Responsive adjustments */
+.compact .outer-card {
+    -fx-padding: 30px;
+}
+
+.compact .login-form {
+    -fx-padding: 25px;
+}
+
+.compact .login-textfield,
+.compact .login-button,
+.compact .signup-button {
+    -fx-pref-width: 280px;
+}
+
+/* Animation classes */
+.fade-in {
+    -fx-opacity: 0;
+}
+
+.fade-in.active {
+    -fx-opacity: 1;
+}
+
+.slide-up {
+    -fx-translate-y: 20px;
+    -fx-opacity: 0;
+}
+
+.slide-up.active {
+    -fx-translate-y: 0;
+    -fx-opacity: 1;
+}
+
+/* High contrast mode support */
+.high-contrast .outer-card {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #000000;
+    -fx-border-width: 2px;
+}
+
+.high-contrast .system-title,
+.high-contrast .system-subtitle {
+    -fx-text-fill: #000000;
+}
+
+.high-contrast .login-textfield {
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #000000;
+    -fx-border-color: #000000;
+    -fx-border-width: 2px;
+}
+
+.high-contrast .login-button,
+.high-contrast .signup-button {
+    -fx-background-color: #000000;
+    -fx-text-fill: #ffffff;
+    -fx-border-color: #ffffff;
+    -fx-border-width: 2px;
+}
